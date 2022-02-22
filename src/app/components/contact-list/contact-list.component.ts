@@ -1,5 +1,4 @@
 import { AddFormComponent } from '../add-form/add-form.component';
-import { ConfirmationService } from 'primeng/api';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { User } from 'src/app/model/user';
@@ -8,7 +7,7 @@ import { User } from 'src/app/model/user';
   selector: 'contact-list',
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.scss'],
-  providers: [DialogService, ConfirmationService],
+  providers: [DialogService],
 })
 export class ContactListComponent implements OnInit {
   private _contacts_list: User[];
@@ -27,7 +26,6 @@ export class ContactListComponent implements OnInit {
   @Output() deleteCurrentContact: any = new EventEmitter<string>();
   constructor(
     public dialogService: DialogService,
-    private confirmService: ConfirmationService
   ) {}
 
   ngOnInit(): void {}
