@@ -16,12 +16,6 @@ export class ContactListComponent implements OnInit {
   currentIndex: number | null = null;
   editingEnabled: boolean = false;
   openDialogBox: boolean = false;
-
-  updatedData = {
-    name: '',
-    number: 0,
-  };
-
   constructor(
     public dialogService: DialogService,
     private confirmService: ConfirmationService
