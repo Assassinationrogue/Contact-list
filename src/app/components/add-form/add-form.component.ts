@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Fields } from 'src/app/model/user';
 
 @Component({
@@ -9,10 +9,10 @@ import { Fields } from 'src/app/model/user';
   styleUrls: ['./add-form.component.scss'],
 })
 export class AddFormComponent implements OnInit {
-  constructor(
-    private ref: DynamicDialogRef,
-    private dialogConfig: DynamicDialogConfig
-  ) {}
+  constructor(private ref: DynamicDialogRef) {}
+
+  REQUIRED_MESSAGE: string = 'Field is required!';
+  INVALID_EMAIL: string = 'Please enter a valid email address.';
 
   fg: FormGroup;
 
@@ -37,7 +37,6 @@ export class AddFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.fg = this.createForm();
-    
   }
 
   private createForm(): FormGroup {

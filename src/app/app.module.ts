@@ -1,3 +1,4 @@
+import { Message } from './components/add-form/message.component';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     LandingPageComponent,
     ContactListComponent,
     AddFormComponent,
+    Message
   ],
   imports: [
     BrowserModule,

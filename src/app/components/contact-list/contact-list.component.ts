@@ -39,7 +39,7 @@ export class ContactListComponent implements OnInit {
     const ref = this.dialogService
       .open(AddFormComponent, {
         header: 'Add contact',
-        width: '50%',
+        width: '40%',
       })
       .onClose.subscribe((data) => {
         this.editCurrentContact.emit(data);
