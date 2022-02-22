@@ -41,20 +41,9 @@ export class ContactListComponent implements OnInit {
    * @param name accepts in string format
    * @returns void
    */
-  deleteContact(name: string): void {
-    this.deleteCurrentContact.emit(name);
+  deleteContact(id: any): void {
+    this.deleteCurrentContact.emit(id);
   }
 
-  confirm(event: Event) {
-    this.confirmService.confirm({
-      message: 'Are you sure that you want to proceed?',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        //confirm action
-      },
-      reject: () => {
-        //reject action
-      },
-    });
-  }
+ 
 }
