@@ -60,11 +60,11 @@ export class ContactListComponent implements OnInit {
   }
 
   /**
-   * Sorts 
+   * Sorts names alphabatically
    * @param sortedName is default array no need to pass any array additionally
    * @returns an array
    */
-  private sortByName(sortedName:string[] = []){
+  private sortByName(sortedName: string[] = []): string[] {
     this._contacts_list
       .map((data) => {
         return {
@@ -77,44 +77,38 @@ export class ContactListComponent implements OnInit {
       .forEach((data) => {
         sortedName.push(data['name']);
       });
-      return sortedName.sort()
+    return sortedName.sort();
   }
 
   /**
-   * @description 
+   * Sorts contacts list based on sorted names
+   * @param sortedName accepts a sorted name array
+   * @param contact_list default and optional value not required to be passed
+   * @returns User[]
+   */
+  private sortContactList(sortedName: string[], contact_list: User[] = []): User[] {
+    sortedName.forEach((name) => {
+      this._contacts_list.forEach((data) => {
+        if (
+          data.first_name === name.split(' ')[0] &&
+          data.last_name === name.split(' ')[name.split(' ').length - 1]
+        ) {
+          contact_list.push(data);
+        }
+      });
+    });
+
+    return contact_list;
+  }
+
+  /**
+   * @description
    */
   sortByAZ(): void {
-    let sortedContactList: User[] = [];
-    this.sortByName()
-      .forEach((name) => {
-        this._contacts_list.forEach((data) => {
-          if (
-            data.first_name === name.split(' ')[0] &&
-            data.last_name === name.split(' ')[name.split(' ').length - 1]
-          ) {
-            sortedContactList.push(data);
-          }
-        });
-      });
-
-    this._contacts_list = sortedContactList;
+    this._contacts_list = this.sortContactList(this.sortByName());
   }
 
   sortByZA() {
-    let dummy: User[] = [];
-     this.sortByName()
-       .reverse()
-       .forEach((name) => {
-         this._contacts_list.forEach((data) => {
-           if (
-             data.first_name === name.split(' ')[0] &&
-             data.last_name === name.split(' ')[name.split(' ').length - 1]
-           ) {
-             dummy.push(data);
-           }
-         });
-       });
-
-    this._contacts_list = dummy;
+    this._contacts_list = this.sortContactList(this.sortByName().reverse());
   }
 }
