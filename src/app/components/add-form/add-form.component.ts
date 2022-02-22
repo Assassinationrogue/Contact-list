@@ -37,7 +37,7 @@ export class AddFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.fg = this.createForm();
-    console.log(this.fg);
+    
   }
 
   private createForm(): FormGroup {

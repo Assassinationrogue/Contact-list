@@ -21,7 +21,7 @@ export class ContactListComponent implements OnInit {
   ngOnInit(): void {}
 
   /**
-   * Edit's current contact
+   * Adds contact
    * @param name accepts in string format
    * @returns void
    */
@@ -32,7 +32,6 @@ export class ContactListComponent implements OnInit {
         width: "50%"
       })
       .onClose.subscribe((data) => {
-        
         this.editCurrentContact.emit(data);
       });
   }

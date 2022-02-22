@@ -2,7 +2,7 @@
  
   <div class="card__list">
      <button pButton label="Add Contact" (click)="addContact()"></button>
-    <div class="contact__card" *ngFor="let contact of getContacts">
+    <div class="contact__card" *ngFor="let contact of getContacts; index as i">
       <img [src]="contact.avatar" alt="" class="contact__image" />
       <div class="contact__card-content">
         <div class="contact__title">
