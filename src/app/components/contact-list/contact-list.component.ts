@@ -86,7 +86,10 @@ export class ContactListComponent implements OnInit {
    * @param contact_list default and optional value not required to be passed
    * @returns User[]
    */
-  private sortContactList(sortedName: string[], contact_list: User[] = []): User[] {
+  private sortContactList(
+    sortedName: string[],
+    contact_list: User[] = []
+  ): User[] {
     sortedName.forEach((name) => {
       this._contacts_list.forEach((data) => {
         if (
@@ -102,13 +105,18 @@ export class ContactListComponent implements OnInit {
   }
 
   /**
-   * @description
+   * Sorts the contact list alphabatically
+   * @returns void
    */
   sortByAZ(): void {
     this._contacts_list = this.sortContactList(this.sortByName());
   }
 
-  sortByZA() {
+  /**
+   * Sorts the contact list reversed alphabatically
+   * @returns void
+   */
+  sortByZA(): void {
     this._contacts_list = this.sortContactList(this.sortByName().reverse());
   }
 }
