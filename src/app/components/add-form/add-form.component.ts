@@ -20,26 +20,18 @@ export class AddFormComponent implements OnInit {
     first_name: {
       readonly: false,
       required: true,
-      max: 50,
-      min: 2,
     },
     last_name: {
       readonly: false,
       required: true,
-      max: 50,
-      min: 2,
     },
     email: {
       readonly: false,
       required: true,
-      max: 0,
-      min: 0,
     },
     avatar: {
       readonly: false,
       required: true,
-      max: 0, // ITU imposed
-      min: 4, // if Saint Helena
     },
   };
 
@@ -60,15 +52,7 @@ export class AddFormComponent implements OnInit {
           this.fieldSettings[field]?.required
             ? Validators.required
             : Validators.nullValidator,
-          this.fieldSettings[field]?.max
-            ? Validators.max(this.fieldSettings[field]?.max)
-            : Validators.nullValidator,
-          this.fieldSettings[field]?.min
-            ? Validators.min(this.fieldSettings[field]?.min)
-            : Validators.nullValidator,
-          this.fieldSettings['email']
-            ? Validators.email
-            : Validators.nullValidator,
+          field === 'email' ? Validators.email : Validators.nullValidator,
         ],
       ];
     });
@@ -77,10 +61,6 @@ export class AddFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.ref.close({
-      name: this.fg.getRawValue().name,
-      number: this.fg.getRawValue().phoneNumber,
-      id: this.dialogConfig.data.id,
-    });
+    this.ref.close(this.fg.getRawValue());
   }
 }

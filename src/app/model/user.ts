@@ -13,6 +13,5 @@ export interface Fields {
 export interface Field {
   readonly: boolean;
   required: boolean;
-  max: number;
-  min: number;
+ 
 }
