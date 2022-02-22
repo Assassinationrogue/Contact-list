@@ -32,8 +32,8 @@ export class AddFormComponent implements OnInit {
     email: {
       readonly: false,
       required: true,
-      max: 50,
-      min: 2,
+      max: 0,
+      min: 0,
     },
     avatar: {
       readonly: false,
@@ -45,7 +45,7 @@ export class AddFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.fg = this.createForm();
-   console.log(this.fg)
+    console.log(this.fg);
   }
 
   private createForm(): FormGroup {
@@ -65,6 +65,9 @@ export class AddFormComponent implements OnInit {
             : Validators.nullValidator,
           this.fieldSettings[field]?.min
             ? Validators.min(this.fieldSettings[field]?.min)
+            : Validators.nullValidator,
+          this.fieldSettings['email']
+            ? Validators.email
             : Validators.nullValidator,
         ],
       ];

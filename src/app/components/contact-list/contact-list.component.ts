@@ -13,9 +13,6 @@ export class ContactListComponent implements OnInit {
   @Input() getContacts: any;
   @Output() editCurrentContact: any = new EventEmitter<any>();
   @Output() deleteCurrentContact: any = new EventEmitter<string>();
-  currentIndex: number | null = null;
-  editingEnabled: boolean = false;
-  openDialogBox: boolean = false;
   constructor(
     public dialogService: DialogService,
     private confirmService: ConfirmationService
@@ -29,14 +26,14 @@ export class ContactListComponent implements OnInit {
    * @returns void
    */
   addContact(): void {
-    this.editingEnabled = !this.editingEnabled;
     const ref = this.dialogService
       .open(AddFormComponent, {
         header: "Add contact",
         width: "50%"
       })
       .onClose.subscribe((data) => {
-        this.editCurrentContact.emit(data);
+        
+        console.log(data)
       });
   }
 
