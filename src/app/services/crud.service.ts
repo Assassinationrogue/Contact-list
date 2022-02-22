@@ -40,13 +40,4 @@ export class CrudService {
       })
     );
   }
-
-  /**
-   *
-   * @param id takes unique id in string
-   * @returns void
-   */
-  deleteContact(id: string): void {
-    localStorage.removeItem(id);
-  }
 }

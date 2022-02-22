@@ -22,7 +22,7 @@ export class ContactListComponent implements OnInit {
     }
   };
 
-  
+
   @Output() editCurrentContact: any = new EventEmitter<User>();
   @Output() deleteCurrentContact: any = new EventEmitter<string>();
   constructor(
@@ -55,6 +55,7 @@ export class ContactListComponent implements OnInit {
    */
   deleteContact(id: any): void {
     this.deleteCurrentContact.emit(id);
+    this._contacts_list.splice(id,1)
   }
 
  

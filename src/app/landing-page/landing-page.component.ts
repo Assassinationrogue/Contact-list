@@ -26,12 +26,4 @@ export class LandingPageComponent implements OnInit {
     });
   }
 
-  /**
-   *
-   * @param name
-   */
-  deleteCurrentContact(id: string): void {
-    this.crudServices.deleteContact(id);
-    console.log(id)
-  }
 }

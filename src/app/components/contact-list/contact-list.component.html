@@ -3,18 +3,18 @@
   <div class="card__list">
      <button pButton label="Add Contact" (click)="addContact()"></button>
     <div class="contact__card" *ngFor="let contact of contacts_list; index as i">
-      <img [src]="contact.avatar" alt="" class="contact__image" />
+      <img [src]="contact?.avatar" alt="" class="contact__image" />
       <div class="contact__card-content">
         <div class="contact__title">
           <div style="display: inline" class="contact__title-fName">
-            {{ contact.first_name }}
+            {{ contact?.first_name }}
           </div>
           <div style="display: inline" class="contact__title-lName">
-            {{ contact.last_name }}
+            {{ contact?.last_name }}
           </div>
         </div>
 
-        <div class="contact__email">{{ contact.email }}</div>
+        <div class="contact__email">{{ contact?.email }}</div>
       </div>
       <div class="contact__createdOn">
         <button
