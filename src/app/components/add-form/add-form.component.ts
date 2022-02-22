@@ -35,7 +35,7 @@ export class AddFormComponent implements OnInit {
       max: 50,
       min: 2,
     },
-    phoneNumber: {
+    avatar: {
       readonly: false,
       required: true,
       max: 0, // ITU imposed
@@ -45,7 +45,7 @@ export class AddFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.fg = this.createForm();
-   
+   console.log(this.fg)
   }
 
   private createForm(): FormGroup {

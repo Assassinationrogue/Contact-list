@@ -38,6 +38,8 @@ export class ContactListComponent implements OnInit {
     this.editingEnabled = !this.editingEnabled;
     const ref = this.dialogService
       .open(AddFormComponent, {
+        header: "Add contact",
+        width: "50%"
       })
       .onClose.subscribe((data) => {
         this.editCurrentContact.emit(data);
