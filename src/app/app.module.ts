@@ -10,6 +10,7 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ButtonModule } from 'primeng/button';
 
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { InputTextModule } from 'primeng/inputtext';
 
 import { AddFormComponent } from './components/add-form/add-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     DynamicDialogModule,
+    ConfirmPopupModule,
+    InputTextModule,
     BrowserAnimationsModule,
     ButtonModule,
   ],

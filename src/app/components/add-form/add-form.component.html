@@ -1,8 +1,48 @@
-<form [formGroup]="fg" (ngSubmit)="onSubmit()">
-    <label for="name">Name</label>
-    <input type="text" id="name" formControlName="name">
+<form [formGroup]="fg" (ngSubmit)="onSubmit()" class="form">
+  <div class="form__controls">
+    <div class="form__controls-name">
+      <div class="form__controls-name--f_name">
+        <label for="f_name">First Name</label>
+        <input
+          type="text"
+          id="f_name"
+          formControlName="first_name"
+          class=""
+          pInputText
+        />
+      </div>
+      <div class="form__controls-name--l_name">
+        <label for="l_name">Last Name</label>
+        <input
+          type="text"
+          id="l_name"
+          formControlName="last_name"
+          class=""
+          pInputText
+        />
+      </div>
+    </div>
+    <div class="form__controls-email">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class=""
+        pInputText
+      />
+    </div>
 
-    <label for="number">Phone number</label>
-    <input type="tel" id="number" formControlName="phoneNumber">
-    <button type="submit" class="button good">Save</button>
+    <label for="avatar">Avatar</label>
+    <input
+      type="text"
+      id="avatar"
+      formControlName="avatar"
+      placeholder="Paste a link"
+      class=""
+      pInputText
+    />
+  </div>
+
+  <button type="submit" class="button good">Save</button>
 </form>

@@ -1,0 +1,16 @@
+.form__controls{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &-name{
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+        &--f_name, &--l_name{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+    }
+}
