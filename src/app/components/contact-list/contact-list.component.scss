@@ -22,7 +22,7 @@
     gap: 20px;
     padding: 5px 7.5px;
     box-shadow: 1px 3px 6px grey;
-    transition: all .3s ease-out;
+    transition: all 0.3s ease-out;
     opacity: 1;
 
     &-content {
@@ -30,9 +30,9 @@
       width: 164.51px;
     }
 
-    &-delete{
-        transition: all .3s ease-out;
-        opacity: 0;
+    &-delete {
+      transition: all 0.3s ease-out;
+      opacity: 0;
     }
   }
 
@@ -55,10 +55,6 @@
   &__title,
   &__email {
     margin: 15px 0px;
-  }
-
-  &__email {
-    //background-color: burlywood;
   }
 
   &__createdOn {
