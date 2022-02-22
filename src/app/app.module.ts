@@ -11,6 +11,8 @@ import { ButtonModule } from 'primeng/button';
 
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { InputTextModule } from 'primeng/inputtext';
+import { SlideMenuModule } from 'primeng/slidemenu';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 import { AddFormComponent } from './components/add-form/add-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,6 +38,8 @@ import { OrderByPipe } from './pipes/order-by.pipe';
     InputTextModule,
     BrowserAnimationsModule,
     ButtonModule,
+    SlideMenuModule,
+    OverlayPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent],
