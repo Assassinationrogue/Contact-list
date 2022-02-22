@@ -31,12 +31,6 @@ export class CrudService {
     return this.http.get<User>(`${this.apiUrl}/users`).pipe(
       map((data) => {
         return data['data'];
-      }),
-      tap((data) => {
-        const newData = data;
-        data.forEach((user) => {
-         
-        });
       })
     );
   }
