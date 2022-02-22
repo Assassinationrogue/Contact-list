@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+.button {
+  border: none;
+  width: fit-content;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin: 1px 1px;
+}
+
+.primary {
+  background-color: rgb(86, 163, 250);
+  color: aliceblue;
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten(rgb(86, 163, 250), 5%);
+  }
+
+  &:active {
+    background-color: darken(rgb(86, 163, 250), 5%);
+  }
+}
+
+.good {
+  background-color: rgb(140, 221, 19);
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten(rgb(140, 221, 19), 5%);
+  }
+  &:active {
+    background-color: darken(rgb(140, 221, 19), 5%);
+  }
+}
+
+button[disabled] {
+  &:hover {
+    cursor: not-allowed;
+  }
+}
+
+.bad {
+  background-color: rgb(243, 60, 60);
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten(rgb(243, 60, 60), 5%);
+  }
+
+  &:active {
+    background-color: darken(rgb(243, 60, 60), 5%);
+  }
+}
