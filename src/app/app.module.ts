@@ -7,29 +7,30 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
-import {  ButtonModule } from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
 
-import { EditFormComponent } from './components/edit-form/edit-form.component';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+
+import { AddFormComponent } from './components/add-form/add-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PopupDirective } from './directives/popup.directive';
-import { PopupComponent } from './directives/popup/popup.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     ContactListComponent,
-    EditFormComponent,
-    PopupDirective,
-    PopupComponent,
+    AddFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     DynamicDialogModule,
     BrowserAnimationsModule,
-    ButtonModule
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

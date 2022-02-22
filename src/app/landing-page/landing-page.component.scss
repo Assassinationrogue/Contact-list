@@ -1,0 +1,83 @@
+.contact_book{
+    display: flex;
+    flex-direction: column;
+
+   
+}
+
+button{
+    width: 100%;
+}
+
+.heading{
+    margin: 10px 20px;
+    border-bottom: 2px solid grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &-text{
+        font-size: 25px;
+        font-weight: 200;
+        width: 60%;
+        text-align: right;
+    }
+
+    &-date{
+        font-size: 20px;
+        font-weight: 200;
+        width: 40%;
+        text-align: right;
+
+
+    }
+}
+
+
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+    &-form{
+        width: 50%;
+        height: 60vh;
+       // background-color: aqua;
+        padding: 10px 20px;
+       
+
+
+        &--main{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 150px;
+            //background-color: white;
+            justify-content: space-evenly;
+            position: relative;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &-contact{
+        width: 50%;
+        height: 60vh;
+       // background-color: beige;
+        padding: 10px 20px;
+
+        &-name{
+            display: flex;
+
+        }
+    }
+}
+contact-list{
+    width: 50%;
+
+}
+
+
+

@@ -1,0 +1,15 @@
+<div class="contact_book">
+  
+  <div class="content">
+   
+    <div class="content-contact">
+       
+      <contact-list
+        [getContacts]="getContacts"
+        (deleteCurrentContact)="deleteCurrentContact($event)"
+      ></contact-list>
+    </div>
+  </div>
+</div>
+
+
