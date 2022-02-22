@@ -18,7 +18,6 @@ import { AddFormComponent } from './components/add-form/add-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
-import { OrderByPipe } from './pipes/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { OrderByPipe } from './pipes/order-by.pipe';
     LandingPageComponent,
     ContactListComponent,
     AddFormComponent,
-    OrderByPipe,
   ],
   imports: [
     BrowserModule,
