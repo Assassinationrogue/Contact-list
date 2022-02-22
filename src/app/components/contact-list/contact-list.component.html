@@ -9,6 +9,7 @@
         icon="pi pi-filter"
         class="p-button-rounded p-button-text p-button-plain"
         (click)="op.toggle($event)"
+        style="color:black"
       ></button>
     </div>
     <div
@@ -52,6 +53,7 @@
         icon="pi pi-sort-alpha-up"
         class="p-button-text p-button-plain"
         style="height: 20px; font-size: 15px"
+        (click)="op.hide()"
       ></button>
       <button
         pButton
@@ -59,6 +61,7 @@
         icon="pi pi-sort-alpha-down"
         class="p-button-text p-button-plain"
         style="height: 20px; font-size: 15px"
+        (click)="op.hide()"
       ></button>
     </div>
   </ng-template>
