@@ -25,6 +25,7 @@
 
     &-content {
       margin: 5px 7.5px;
+      width: 164.51px;
     }
   }
 
@@ -39,7 +40,9 @@
   &__title {
     //background-color: beige;
     font-weight: 600;
-    font-size: 25px;
+    font-size: 20px;
+    width: 151.557px;
+    //word-wrap: break-word;
   }
 
   &__title,
