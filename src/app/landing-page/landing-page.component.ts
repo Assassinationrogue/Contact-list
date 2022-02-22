@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
-  getContacts: User;
+  getContacts: User[];
   newContact: User;
 
   constructor(private crudServices: CrudService) {}
@@ -32,5 +32,6 @@ export class LandingPageComponent implements OnInit {
    */
   deleteCurrentContact(id: string): void {
     this.crudServices.deleteContact(id);
+    console.log(id)
   }
 }

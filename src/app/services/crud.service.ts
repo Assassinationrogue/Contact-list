@@ -1,6 +1,6 @@
 import { User } from './../model/user';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -27,10 +27,16 @@ export class CrudService {
    * @param none
    * @returns Observable<User>
    */
-  getAllContact(): Observable<User> {
+  getAllContact(): Observable<User[]> {
     return this.http.get<User>(`${this.apiUrl}/users`).pipe(
       map((data) => {
         return data['data'];
+      }),
+      tap((data) => {
+        const newData = data;
+        data.forEach((user) => {
+          console.log(user.first_name[0])
+        });
       })
     );
   }
