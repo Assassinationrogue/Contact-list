@@ -59,7 +59,11 @@ export class ContactListComponent implements OnInit {
     this.deleteCard = true;
   }
 
-
+  /**
+   * Sorts 
+   * @param sortedName is default array no need to pass any array additionally
+   * @returns an array
+   */
   private sortByName(sortedName:string[] = []){
     this._contacts_list
       .map((data) => {
@@ -73,7 +77,7 @@ export class ContactListComponent implements OnInit {
       .forEach((data) => {
         sortedName.push(data['name']);
       });
-      return sortedName
+      return sortedName.sort()
   }
 
   /**
@@ -82,7 +86,6 @@ export class ContactListComponent implements OnInit {
   sortByAZ(): void {
     let sortedContactList: User[] = [];
     this.sortByName()
-      .sort()
       .forEach((name) => {
         this._contacts_list.forEach((data) => {
           if (
@@ -100,7 +103,6 @@ export class ContactListComponent implements OnInit {
   sortByZA() {
     let dummy: User[] = [];
      this.sortByName()
-       .sort()
        .reverse()
        .forEach((name) => {
          this._contacts_list.forEach((data) => {
