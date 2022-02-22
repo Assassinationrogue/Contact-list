@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LandingPageComponent implements OnInit {
   getContacts: User;
+  newContact: User;
 
   constructor(private crudServices: CrudService) {}
 
@@ -17,6 +18,12 @@ export class LandingPageComponent implements OnInit {
     this.crudServices
       .getAllContact()
       .subscribe((data) => (this.getContacts = data));
+  }
+
+  postContact(data:User){
+    this.crudServices.postContact(data).subscribe(data=>{
+      console.log(data)
+    });
   }
 
   /**

@@ -12,16 +12,14 @@ export class CrudService {
 
   private apiUrl: string = 'https://reqres.in/api';
 
- 
-
   /**
-   * Saves user name and phone and id
+   * Saves user name and email and id
    * @param name gets name of the user
    * @param number gets phone number of the user
    * @returns void
    */
-  postContact(name: string, number: any): void {
-    
+  postContact(data): Observable<User> {
+    return this.http.post<User>(`${this.apiUrl}/users`, data);
   }
 
   /**
@@ -29,10 +27,12 @@ export class CrudService {
    * @param none
    * @returns Observable<User>
    */
-   getAllContact(): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/users`).pipe(map(data=>{
-      return data['data']
-    }))
+  getAllContact(): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/users`).pipe(
+      map((data) => {
+        return data['data'];
+      })
+    );
   }
 
   /**
@@ -43,20 +43,4 @@ export class CrudService {
   deleteContact(id: string): void {
     localStorage.removeItem(id);
   }
-
-  // /**
-  //  * Edits current contact and saves in localstorage using id
-  //  * @param details
-  //  * @returns void
-  //  */
-  // editCurrentContact(details: User): void {
-  //   localStorage.setItem(
-  //     details.id,
-  //     JSON.stringify({
-  //       name: details.name[0].toUpperCase() + details.name.slice(1),
-  //       number: details.number,
-  //       id: details.id + '',
-  //     })
-  //   );
-  // }
 }

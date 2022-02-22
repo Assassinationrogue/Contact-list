@@ -3,6 +3,7 @@
     <div class="content-contact">
       <contact-list
         [getContacts]="getContacts"
+        (editCurrentContact)="postContact($event)"
         (deleteCurrentContact)="deleteCurrentContact($event)"
       ></contact-list>
     </div>

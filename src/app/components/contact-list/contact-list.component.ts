@@ -33,7 +33,7 @@ export class ContactListComponent implements OnInit {
       })
       .onClose.subscribe((data) => {
         
-        console.log(data)
+        this.editCurrentContact.emit(data);
       });
   }
 
