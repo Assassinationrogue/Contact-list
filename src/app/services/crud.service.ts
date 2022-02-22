@@ -35,7 +35,7 @@ export class CrudService {
       tap((data) => {
         const newData = data;
         data.forEach((user) => {
-          console.log(user.first_name[0])
+         
         });
       })
     );

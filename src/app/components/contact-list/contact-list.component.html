@@ -53,7 +53,8 @@
         icon="pi pi-sort-alpha-up"
         class="p-button-text p-button-plain"
         style="height: 20px; font-size: 15px"
-        (click)="op.hide()"
+        (click)="op.hide(); sortByAZ()"
+
       ></button>
       <button
         pButton
@@ -61,7 +62,7 @@
         icon="pi pi-sort-alpha-down"
         class="p-button-text p-button-plain"
         style="height: 20px; font-size: 15px"
-        (click)="op.hide()"
+        (click)="op.hide(); sortByZA()"
       ></button>
     </div>
   </ng-template>

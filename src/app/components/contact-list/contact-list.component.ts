@@ -11,19 +11,17 @@ import { User } from 'src/app/model/user';
   providers: [DialogService, ConfirmationService],
 })
 export class ContactListComponent implements OnInit {
-
   private _contacts_list: User[];
-  get contacts_list(): User[]{
+  get contacts_list(): User[] {
     return this._contacts_list;
   }
-  @Input() set contacts_list(value:User[]){
-    if(value){
+  @Input() set contacts_list(value: User[]) {
+    if (value) {
       this._contacts_list = value;
     }
-  };
+  }
 
   deleteCard: boolean = false;
-
 
   @Output() editCurrentContact: any = new EventEmitter<User>();
   @Output() deleteCurrentContact: any = new EventEmitter<string>();
@@ -42,8 +40,8 @@ export class ContactListComponent implements OnInit {
   addContact(): void {
     const ref = this.dialogService
       .open(AddFormComponent, {
-        header: "Add contact",
-        width: "50%"
+        header: 'Add contact',
+        width: '50%',
       })
       .onClose.subscribe((data) => {
         this.editCurrentContact.emit(data);
@@ -57,9 +55,69 @@ export class ContactListComponent implements OnInit {
    */
   deleteContact(id: any): void {
     this.deleteCurrentContact.emit(id);
-    this._contacts_list.splice(id,1)
+    this._contacts_list.splice(id, 1);
     this.deleteCard = true;
   }
 
- 
+  sortByAZ() {
+    let dummy: User[] = [];
+    const sortedDummy: any[] = [];
+    this._contacts_list
+      .map((data) => {
+        return {
+          id: data.id,
+          name: `${data.first_name} ${data.last_name}`,
+          avatar: data.avatar,
+          email: data.email,
+        };
+      })
+      .forEach((data) => {
+        sortedDummy.push(data['name']);
+      });
+
+    sortedDummy.sort();
+    sortedDummy.forEach((name) => {
+      this._contacts_list.forEach((data) => {
+        if (
+          data.first_name === name.split(' ')[0] &&
+          data.last_name === name.split(' ')[name.split(' ').length - 1]
+        ) {
+          dummy.push(data);
+        }
+      });
+    });
+
+    this._contacts_list = dummy;
+  }
+
+  sortByZA() {
+    let dummy: User[] = [];
+    const sortedDummy: any[] = [];
+    this._contacts_list
+      .map((data) => {
+        return {
+          id: data.id,
+          name: `${data.first_name} ${data.last_name}`,
+          avatar: data.avatar,
+          email: data.email,
+        };
+      })
+      .forEach((data) => {
+        sortedDummy.push(data['name']);
+      });
+
+    sortedDummy.sort().reverse();
+    sortedDummy.forEach((name) => {
+      this._contacts_list.forEach((data) => {
+        if (
+          data.first_name === name.split(' ')[0] &&
+          data.last_name === name.split(' ')[name.split(' ').length - 1]
+        ) {
+          dummy.push(data);
+        }
+      });
+    });
+
+    this._contacts_list = dummy;
+  }
 }
