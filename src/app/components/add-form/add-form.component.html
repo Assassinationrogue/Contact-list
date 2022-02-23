@@ -13,7 +13,8 @@
         <invalid-message
           [message]="REQUIRED_MESSAGE"
           *ngIf="
-            fg.controls.first_name.touched && fg.controls.first_name.errors?.required
+            fg.controls.first_name.touched &&
+            fg.controls.first_name.errors?.required
           "
         ></invalid-message>
       </div>
@@ -26,10 +27,11 @@
           class=""
           pInputText
         />
-         <invalid-message
+        <invalid-message
           [message]="REQUIRED_MESSAGE"
           *ngIf="
-            fg.controls.last_name.touched && fg.controls.last_name.errors?.required
+            fg.controls.last_name.touched &&
+            fg.controls.last_name.errors?.required
           "
         ></invalid-message>
       </div>
@@ -43,18 +45,14 @@
         class=""
         pInputText
       />
-       <invalid-message
-          [message]="REQUIRED_MESSAGE"
-          *ngIf="
-            fg.controls.email.touched && fg.controls.email.errors?.required
-          "
-        ></invalid-message>
-        <invalid-message
-          [message]="INVALID_EMAIL"
-          *ngIf="
-            fg.controls.email.touched && fg.controls.email.errors?.email
-          "
-        ></invalid-message>
+      <invalid-message
+        [message]="REQUIRED_MESSAGE"
+        *ngIf="fg.controls.email.touched && fg.controls.email.errors?.required"
+      ></invalid-message>
+      <invalid-message
+        [message]="INVALID_EMAIL"
+        *ngIf="fg.controls.email.touched && fg.controls.email.errors?.email"
+      ></invalid-message>
     </div>
 
     <label for="avatar">Avatar</label>
@@ -66,12 +64,10 @@
       class=""
       pInputText
     />
-     <invalid-message
-          [message]="REQUIRED_MESSAGE"
-          *ngIf="
-            fg.controls.avatar.touched && fg.controls.avatar.errors?.required
-          "
-        ></invalid-message>
+    <invalid-message
+      [message]="REQUIRED_MESSAGE"
+      *ngIf="fg.controls.avatar.touched && fg.controls.avatar.errors?.required"
+    ></invalid-message>
   </div>
 
   <button type="submit" class="button good">Save</button>
