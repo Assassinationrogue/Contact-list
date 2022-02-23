@@ -29,7 +29,6 @@ export class ContactListComponent implements OnInit, OnDestroy {
     }
   }
 
-  deleteCard: boolean = false;
 
   @Output() editCurrentContact: any = new EventEmitter<User>();
 
@@ -62,7 +61,6 @@ export class ContactListComponent implements OnInit, OnDestroy {
    */
   deleteContact(id: any): void {
     this._contacts_list.splice(id, 1);
-    this.deleteCard = true;
   }
 
   /**
