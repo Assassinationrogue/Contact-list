@@ -38,6 +38,7 @@ button{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 
 
     &-form{
@@ -67,6 +68,8 @@ button{
         height: 60vh;
        // background-color: beige;
         padding: 10px 20px;
+        margin-left: -145px;
+        
 
         &-name{
             display: flex;
