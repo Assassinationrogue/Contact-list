@@ -1,3 +1,4 @@
+import { ShowLoader } from './components/show-loader/show-loader.component';
 import { Message } from './components/add-form/message.component';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     LandingPageComponent,
     ContactListComponent,
     AddFormComponent,
-    Message
+    Message,
+    ShowLoader
   ],
   imports: [
     BrowserModule,

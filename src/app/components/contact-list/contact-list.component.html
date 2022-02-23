@@ -1,5 +1,5 @@
 <div class="contact-list">
-  <div class="card__list">
+  <div class="card__list" *ngIf="contacts_list?.length; else showLoader">
     <button pButton label="Add Contact" (click)="addContact()"></button>
     <div class="filters" style="width: 100%; height: 50px">
       <button
@@ -15,8 +15,9 @@
     <div
       class="contact__card"
       *ngFor="let contact of contacts_list; index as i"
+      
     >
-      <ng-container>
+      <ng-container >
         <img [src]="contact?.avatar" alt="" class="contact__image" />
         <div class="contact__card-content">
           <div class="contact__title">
@@ -46,14 +47,14 @@
 </div>
 <p-overlayPanel #op [dismissable]="true" [showCloseIcon]="false">
   <ng-template pTemplate >
-    <div class="buttons" style="display: flex; flex-direction: column">
+    <div class="buttons" style="display: flex; flex-direction: column" #currentFilter>
       <button
         pButton
         type="button"
         icon="pi pi-sort-alpha-up"
         class="p-button-text p-button-plain"
         style="height: 20px; font-size: 15px"
-        (click)="op.hide(); sortByAZ()"
+        (click)="op.hide(); sortByAZ(); "
 
       ></button>
       <button
@@ -67,3 +68,8 @@
     </div>
   </ng-template>
 </p-overlayPanel>
+
+<ng-template #showLoader>
+  <show-loader></show-loader>
+</ng-template>
+

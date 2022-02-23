@@ -7,6 +7,10 @@ import {
   OnInit,
   Output,
   OnDestroy,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  ViewRef,
 } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { User } from 'src/app/model/user';
@@ -17,8 +21,11 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./contact-list.component.scss'],
   providers: [DialogService],
 })
-export class ContactListComponent implements OnInit, OnDestroy {
+export class ContactListComponent implements OnInit, AfterViewInit, OnDestroy {
   private subscription: Subscription = new Subscription();
+
+  
+  
   private _contacts_list: User[];
   get contacts_list(): User[] {
     return this._contacts_list;
@@ -32,9 +39,17 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
   @Output() editCurrentContact: any = new EventEmitter<User>();
 
-  constructor(public dialogService: DialogService) {}
+  constructor(public dialogService: DialogService, public currentFilter: ElementRef) {
+    this.currentFilter = currentFilter;
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
+
+  ngAfterViewInit(): void {
+    
+  }
 
   /**
    * Adds contact

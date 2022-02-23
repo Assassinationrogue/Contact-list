@@ -1,6 +1,6 @@
 <div class="contact_book">
   <div class="content">
-    <div class="content-contact">
+    <div class="content-contact" *ngIf="getContacts?.length; else showLoader">
       <contact-list
         [contacts_list]="getContacts"
         (editCurrentContact)="postContact($event)"
@@ -8,3 +8,8 @@
     </div>
   </div>
 </div>
+
+<ng-template #showLoader>
+  <show-loader></show-loader>
+</ng-template>
+
