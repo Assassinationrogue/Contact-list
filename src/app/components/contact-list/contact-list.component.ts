@@ -1,5 +1,13 @@
+import { Subscription } from 'rxjs';
 import { AddFormComponent } from '../add-form/add-form.component';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  OnDestroy,
+} from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { User } from 'src/app/model/user';
 
@@ -9,7 +17,8 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./contact-list.component.scss'],
   providers: [DialogService],
 })
-export class ContactListComponent implements OnInit {
+export class ContactListComponent implements OnInit, OnDestroy {
+  private subscription: Subscription = new Subscription();
   private _contacts_list: User[];
   get contacts_list(): User[] {
     return this._contacts_list;
@@ -23,10 +32,8 @@ export class ContactListComponent implements OnInit {
   deleteCard: boolean = false;
 
   @Output() editCurrentContact: any = new EventEmitter<User>();
-  @Output() deleteCurrentContact: any = new EventEmitter<string>();
-  constructor(
-    public dialogService: DialogService,
-  ) {}
+
+  constructor(public dialogService: DialogService) {}
 
   ngOnInit(): void {}
 
@@ -36,14 +43,16 @@ export class ContactListComponent implements OnInit {
    * @returns void
    */
   addContact(): void {
-    const ref = this.dialogService
-      .open(AddFormComponent, {
-        header: 'Add contact',
-        width: '40%',
-      })
-      .onClose.subscribe((data) => {
-        this.editCurrentContact.emit(data);
-      });
+    this.subscription.add(
+      this.dialogService
+        .open(AddFormComponent, {
+          header: 'Add contact',
+          width: '40%',
+        })
+        .onClose.subscribe((data) => {
+          this.editCurrentContact.emit(data);
+        })
+    );
   }
 
   /**
@@ -52,7 +61,6 @@ export class ContactListComponent implements OnInit {
    * @returns void
    */
   deleteContact(id: any): void {
-    this.deleteCurrentContact.emit(id);
     this._contacts_list.splice(id, 1);
     this.deleteCard = true;
   }
@@ -116,5 +124,9 @@ export class ContactListComponent implements OnInit {
    */
   sortByZA(): void {
     this._contacts_list = this.sortContactList(this.sortByName().reverse());
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

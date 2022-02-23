@@ -39,6 +39,11 @@ export class AddFormComponent implements OnInit {
     this.fg = this.createForm();
   }
 
+  /**
+   * Creates a null value form with validators
+   * @param none
+   * @returns FormGroup
+   */
   private createForm(): FormGroup {
     const control = {};
     Object.keys(this.fieldSettings).forEach((field) => {
