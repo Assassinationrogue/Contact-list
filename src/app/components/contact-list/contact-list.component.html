@@ -51,19 +51,20 @@
       <button
         pButton
         type="button"
-        icon="pi-sort-alpha-up"
+        icon="pi pi-sort-alpha-up"
         class="p-button-text p-button-plain"
         style="height: 20px; font-size: 15px"
         (click)="op.hide(); sortByAZ(); "
-        label="&nbsp; &checkmark;"
+        [label]="filter? '&checkmark;' :' &nbsp;'"
       ></button>
       <button
         pButton
         type="button"
         icon="pi pi-sort-alpha-down"
         class="p-button-text p-button-plain"
-        style="height: 20px; font-size: 15px"
+        style="height: 20px; font-size: 15px;"
         (click)="op.hide(); sortByZA()"
+        [label]="filter === false? '&checkmark;' :' &nbsp;'"
       ></button>
     </div>
   </ng-template>

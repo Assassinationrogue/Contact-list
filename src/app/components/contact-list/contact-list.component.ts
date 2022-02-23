@@ -20,6 +20,7 @@ import { User } from 'src/app/model/user';
 })
 export class ContactListComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
+  filter: boolean | null = null;
 
   private _contacts_list: User[];
   get contacts_list(): User[] {
@@ -119,6 +120,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
    * @returns void
    */
   sortByAZ(): void {
+    this.filter = true;
     this._contacts_list = this.sortContactList(this.sortByName());
   }
 
@@ -127,6 +129,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
    * @returns void
    */
   sortByZA(): void {
+    this.filter = false;
     this._contacts_list = this.sortContactList(this.sortByName().reverse());
   }
 
