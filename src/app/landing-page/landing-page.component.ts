@@ -23,7 +23,12 @@ export class LandingPageComponent implements OnInit, OnDestroy {
     );
   }
 
-  postContact(data: User) {
+  /**
+   * Post new data to the api
+   * @param data User
+   * @returns void
+   */
+  postContact(data: User): void {
     this.subscription.add(
       this.crudServices.postContact(data).subscribe((data) => {
         console.log(data);
